@@ -1,38 +1,115 @@
-.App {
+/* Reset some default styles */
+body,
+h1,
+h2,
+p,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* General styles for the app container */
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Banner Section */
+.banner-container {
+  background: url("bannerBackground.jpg") center/cover;
+  height: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.banner-container h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.banner-container p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.banner-container button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Paragraph with Two Images */
+.image-paragraph-container {
+  margin-top: 50px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+}
+
+.image-paragraph-container p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #333;
+  margin-right: 20px;
+  justify-content: center;
+  text-align: center;
+}
+
+.image-wrapper img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Section with Image Upload Button */
+.image-upload-section {
+  margin-top: 50px;
+}
+
+.image-upload-section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.upload-container {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.upload-container input[type="file"] {
+  display: none;
+}
+
+.upload-container label {
+  background-color: #4CAF50;
   color: white;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.upload-container label:hover {
+  background-color: #45a049;
 }
