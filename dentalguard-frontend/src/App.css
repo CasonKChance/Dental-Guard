@@ -25,14 +25,13 @@ body {
 /* General styles for the app container */
 .app-container {
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
 /* Banner Section */
 .banner-container {
   background: url("bannerBackground.jpg") center/cover;
-  height: 600px;
+  height: 750px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -43,13 +42,13 @@ body {
 }
 
 .banner-container h1 {
-  font-size: 4em;
-  margin-bottom: 10px;
+  font-size: 5em;
+  margin-bottom: 20px;
 }
 
 .banner-container p {
-  font-size: 2.5em;
-  margin-bottom: 20px;
+  font-size: 3em;
+  margin-bottom: 250px;
   max-width: 60%;
   color: rgb(255, 255, 255);
 }
@@ -81,7 +80,8 @@ body {
 }
 
 .aboutus-container h2 {
-  font-size: 3.2em;
+  font-size: 4.6em;
+  margin-bottom: 50px;
 }
 
 .aboutus-container h4 {
@@ -148,7 +148,7 @@ body {
   display: none;
 }
 
-.upload-container label {
+.image-upload-section label {
   background-color: #4CAF50;
   color: white;
   padding: 15px 30px;
@@ -160,9 +160,14 @@ body {
   transition: background-color 0.4s, color 0.3s;
 }
 
-.upload-container label:hover {
+.image-upload-section label:hover {
   background-color: rgba(235, 235, 235, 0.628);
   color: #3886b9;
+}
+
+.image-upload-section p {
+  margin-bottom: 20px;
+  font-size: 2em;
 }
 
 /* Output Section */
@@ -208,6 +213,23 @@ body {
     font-size: 1.5em;
     max-width: 80%; 
   }
+}
+
+.upload-container button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-left: 10px; /* Adjust the spacing between the two buttons */
+  transition: background-color 0.4s, color 0.3s;
+}
+
+.upload-container button:hover {
+  background-color: white;
+  color: #4CAF50;
 }
 
 /* Output Section Styles */
@@ -269,4 +291,54 @@ body {
 .footer-section p {
   margin: 0;
   font-size: 1em;
+}
+
+/* Camera Overlay Styles */
+.camera-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.capture-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000; /* Ensure button is always clickable */
+  padding: 10px 20px;
+  font-size: 1em;
+  color: white;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.capture-btn:hover {
+  background-color: #45a049;
+}
+
+.captured-image-container img {
+  /* Use this to adjust the display size of the captured image, if necessary */
+  max-width: 95vw;
+  max-height: 95vh;
+  margin-top: 20px; /* Adjust as needed */
+}
+
+.image-upload-section input[type="file"] {
+  display: none;
+}
+
+.image-display-section img {
+  max-width: 100%;
+  max-height: 400px; /* Adjust based on your layout */
+  display: block;
+  margin: 20px auto; /* Center the image */
 }
