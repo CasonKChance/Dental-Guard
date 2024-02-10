@@ -41,7 +41,7 @@ app.post("/classify", upload.single("file"), async (req, res) => {
     const summarizeResponse = await axios.post(
       "https://api.archetypeai.dev/v0.3/summarize",
       {
-        query: "Describe what oral disease this person may have.",
+        query: "Describe what oral disease, if any, this person may have.",
         file_ids: [file_id],
       },
       {
