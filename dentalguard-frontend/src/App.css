@@ -12,6 +12,11 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+::selection {
+  background-color: #2c59ca;
+  color: #fff;
+}
+
 /* General styles for the app container */
 .app-container {
   width: 100%;
@@ -33,34 +38,41 @@ body {
 }
 
 .banner-container h1 {
-  font-size: 2.5em;
+  font-size: 3em;
   margin-bottom: 10px;
 }
 
 .banner-container p {
-  font-size: 1.2em;
+  font-size: 2em;
   margin-bottom: 20px;
+  max-width: 60%;
+
 }
 
-.banner-container button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 15px 30px;
-  font-size: 1.2em;
+.banner-btn {
   border: none;
-  border-radius: 5px;
+  font-size: 1.2em;
   cursor: pointer;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  background-color: #3886b9;
+  transition: background-color 0.4s, color 0.3s;
 }
-.app-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+
+.banner-btn:hover {
+  background-color: white;
+  color: #3886b9;
 }
+
 
 /* About Us Section */
 .aboutus-container {
   margin-top: 50px;
   text-align: center;
+  width: 100%;
 }
 
 .aboutus-container h2 {
@@ -70,7 +82,7 @@ body {
 
 .aboutus-content {
   display: flex;
-  justify-content: space-around; /* Adjust as needed */
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -83,7 +95,7 @@ body {
 
 /* Updated styling for images */
 .aboutus-content img {
-  max-width: 40%; /* Adjust as needed */
+  max-width: 45%;
   height: auto;
   margin-bottom: 20px;
   margin-left: 100px;
@@ -91,8 +103,8 @@ body {
 
 /* Text on the Right */
 .text-content {
-  max-width: 50%; /* Adjust as needed */
   text-align: left;
+  margin-right: 200px;
 }
 
 .text-content p {
@@ -113,6 +125,7 @@ body {
 }
 
 .image-upload-section h2 {
+  margin-top: 40px;
   font-size: 2em;
   margin-bottom: 20px;
 }
@@ -134,11 +147,13 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  background-color: #3886b9;
+  transition: background-color 0.4s, color 0.3s;
 }
 
 .upload-container label:hover {
-  background-color: #45a049;
+  background-color: white;
+  color: #3886b9;
 }
 
 /* Output Section */

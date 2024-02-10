@@ -12,9 +12,9 @@ const App = () => {
     <div className="app-container">
       {/* Banner Section */}
       <div className="banner-container">
-        <h1>Dental Guard</h1>
-        <p width="20%">AI Oral Hygiene Detector for low-income areas without connection to healthcare facilities.</p>
-        <button>Demo Now</button>
+        <h1>DentalGuard</h1>
+        <p width="20%">AI Oral Hygiene Detector</p>
+        <button className="banner-btn">Learn More</button>
       </div>
 
       {/* About Us Section */}
@@ -29,9 +29,12 @@ const App = () => {
           {/* Text on the Right */}
           <div className="text-content">
             <h2>About Us</h2>
+            <h4>Dental Guard is the first AI Oral Hygiene Detection Software</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel
-              purus eget justo egestas eleifend vel id neque.
+               DentalGuard is a fully-functionial AI oral hygiene detection software built for low income communities with minimal or
+               reduced access to healthcare facilities. DentalGuard can be used to identify over 20 mouth diseases and give real-time data back
+               to users on the status of their oral health. Just snap a picture and DentalGuard AI will provide description of
+               your mouth condition and provide treatment advice when neccessary.
             </p>
           </div>
         </div>
