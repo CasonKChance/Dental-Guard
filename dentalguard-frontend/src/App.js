@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Image1 from './aboutImage1.jpg';
 import Image2 from './aboutImage2.jpg';
@@ -8,6 +8,30 @@ const App = () => {
   useEffect(() => {
     document.title = 'DentalGuard';
   }, []);
+  
+  const [classificationData, setClassificationData] = useState(null);
+  const [diseaseInfo, setDiseaseInfo] = useState(null);
+
+  useEffect(() => {
+    // Fetch or set classificationData and diseaseInfo based on your logic
+    // For now, let's simulate results after a delay
+    const timer = setTimeout(() => {
+      setClassificationData({
+        label: 'Gingivitis',
+        confidence: 0.85,
+      });
+
+      // Simulate disease information based on the classification
+      setDiseaseInfo({
+        description: 'Gingivitis is an inflammation of the gums...',
+        treatment: 'Common treatments include improved oral hygiene practices...',
+      });
+    }, 2000); // Simulating a delay of 2 seconds, replace with actual logic
+
+    // Clean up the timer to avoid memory leaks
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="app-container">
       {/* Banner Section */}
@@ -29,12 +53,12 @@ const App = () => {
           {/* Text on the Right */}
           <div className="text-content">
             <h2>About Us</h2>
-            <h4>Dental Guard is the first AI Oral Hygiene Detection Software</h4>
+            <h4>DentalGuard is the first AI Oral Hygiene Detection Software</h4>
             <p>
                DentalGuard is a fully-functionial AI oral hygiene detection software built for low income communities with minimal or
-               reduced access to healthcare facilities. DentalGuard can be used to identify over 20 mouth diseases and give real-time data back
-               to users on the status of their oral health. Just snap a picture and DentalGuard AI will provide description of
-               your mouth condition and provide treatment advice when neccessary.
+               reduced access to healthcare facilities. DentalGuard can be used to identify over 20 mouth diseases and give real-time data informing
+               users on the condition of their oral health. Snap a picture and DentalGuard AI will provide description of
+               oral status and provide treatment advice when neccessary.
             </p>
           </div>
         </div>
@@ -50,9 +74,35 @@ const App = () => {
         </div>
         <br></br>
       </div>
-      <div className="output-section">
-        <h2>Output</h2>
-      </div>
+      
+      {/* Output Section */}
+      {classificationData && (
+        <div className="output-section">
+          <h2>Classification Result</h2>
+          <p>
+            Mouth Disease: {classificationData.label} (Confidence: {classificationData.confidence})
+          </p>
+        </div>
+      )}
+
+      {/* Description and Treatment Recommendations Section */}
+      {diseaseInfo && (
+        <div className="disease-info-section">
+          <h2>{classificationData.label} Information</h2>
+          <p>{diseaseInfo.description}</p>
+          <h3>Treatment Recommendations</h3>
+          <p>{diseaseInfo.treatment}</p>
+        </div>
+      )}
+      {/* Footer Section */}
+      <footer className="footer-section">
+        <div className="left-content">
+          <p>Hacklytics DentalGuard 2024</p>
+        </div>
+        <div className="right-content">
+          <p>Contributors: Brandon, Max, Cason, Robbie</p>
+        </div>
+      </footer>
     </div>
   );
 };

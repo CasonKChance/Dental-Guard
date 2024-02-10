@@ -1,4 +1,7 @@
-/* Reset some default styles */
+html, body {
+  overflow-x: hidden; /* Add this to hide horizontal overflow */
+}
+
 body,
 h1,
 h2,
@@ -10,6 +13,8 @@ button {
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 ::selection {
@@ -38,15 +43,15 @@ body {
 }
 
 .banner-container h1 {
-  font-size: 3em;
+  font-size: 4em;
   margin-bottom: 10px;
 }
 
 .banner-container p {
-  font-size: 2em;
+  font-size: 2.5em;
   margin-bottom: 20px;
   max-width: 60%;
-
+  color: rgb(255, 255, 255);
 }
 
 .banner-btn {
@@ -55,7 +60,7 @@ body {
   cursor: pointer;
   display: inline-block;
   padding: 15px 30px;
-  border-radius: 8px;
+  border-radius: 14px;
   text-decoration: none;
   color: white;
   background-color: #3886b9;
@@ -76,8 +81,12 @@ body {
 }
 
 .aboutus-container h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
+  font-size: 3.2em;
+}
+
+.aboutus-container h4 {
+  font-size: 1.4em;
+  color: grey;
 }
 
 .aboutus-content {
@@ -95,21 +104,21 @@ body {
 
 /* Updated styling for images */
 .aboutus-content img {
-  max-width: 45%;
+  max-width: 50%;
   height: auto;
   margin-bottom: 20px;
-  margin-left: 100px;
+  padding-left: 120px;
 }
 
 /* Text on the Right */
 .text-content {
   text-align: left;
-  margin-right: 200px;
+  padding-right: 120px;
 }
 
 .text-content p {
   font-size: 1.2em;
-  line-height: 1.6;
+  line-height: 1.5;
   color: #333;
 }
 
@@ -145,14 +154,14 @@ body {
   padding: 15px 30px;
   font-size: 1.2em;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
   background-color: #3886b9;
   transition: background-color 0.4s, color 0.3s;
 }
 
 .upload-container label:hover {
-  background-color: white;
+  background-color: rgba(235, 235, 235, 0.628);
   color: #3886b9;
 }
 
@@ -164,4 +173,100 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
   font-size: 75px;
+}
+
+/* Add a media query for smaller screens */
+@media screen and (max-width: 768px) {
+  /* Adjustments for smaller screens */
+
+  .aboutus-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-left: 50px;
+  }
+
+  .text-content {
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .text-content p {
+    max-width: 100%;
+  }
+
+  .image-stack img {
+    margin-left: 0;
+  }
+
+  /* Additional styles for the banner headings on smaller screens */
+  .banner-container h1 {
+    font-size: 2em;
+  }
+
+  .banner-container p {
+    font-size: 1.5em;
+    max-width: 80%; 
+  }
+}
+
+/* Output Section Styles */
+.output-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.output-section h2 {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.output-section p {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Disease Information Section Styles */
+.disease-info-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.disease-info-section h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.disease-info-section p {
+  font-size: 1.2em;
+  color: #333;
+}
+
+.disease-info-section h3 {
+  font-size: 1.5em;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.footer-section {
+  margin-top: 40px;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-section .left-content {
+  text-align: left;
+}
+
+.footer-section .right-content {
+  text-align: right;
+}
+
+.footer-section p {
+  margin: 0;
+  font-size: 1em;
 }
