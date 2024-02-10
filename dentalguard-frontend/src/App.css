@@ -312,17 +312,19 @@ body {
   top: 20px;
   right: 20px;
   z-index: 10000; /* Ensure button is always clickable */
-  padding: 10px 20px;
-  font-size: 1em;
+  padding: 15px 30px;
+  font-size: 1.1em;
   color: white;
-  background-color: #4CAF50;
+  background-color: #3886b9;;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
+  transition: background-color 0.4s, color 0.3s;
 }
 
 .capture-btn:hover {
-  background-color: #45a049;
+  background-color: white;
+  color: #3886b9;
 }
 
 .captured-image-container img {
@@ -341,4 +343,8 @@ body {
   max-height: 400px; /* Adjust based on your layout */
   display: block;
   margin: 20px auto; /* Center the image */
+}
+
+.inlineStyle {
+  color: #3f8fc595;
 }

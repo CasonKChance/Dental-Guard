@@ -104,8 +104,8 @@ const App = () => {
 
           {/* Text on the Right */}
           <div className="text-content">
-            <h2>About Us</h2>
-            <h4>DentalGuard is the first AI Oral Hygiene Detection Software</h4>
+            <h2>About <span class="inlineStyle">Us</span></h2>
+            <h4><span class="inlineStyle">DentalGuard</span> is the first AI Oral Hygiene Detection Software</h4>
             <p>
                DentalGuard is a fully-functionial AI oral hygiene detection software built for low income communities with minimal or
                reduced access to healthcare facilities. DentalGuard can be used to identify over 20 mouth diseases and give real-time data informing
