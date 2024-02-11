@@ -1,4 +1,5 @@
-.env*
-.jpg
-.jpeg
-.DS_Store
+*.env*
+*.jpg
+*.jpeg
+*.DS_Store
+*.pem

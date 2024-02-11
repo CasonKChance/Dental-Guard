@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   overflow-x: hidden; /* Add this to hide horizontal overflow */
 }
 
@@ -12,7 +13,7 @@ button {
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -70,7 +71,6 @@ body {
   background-color: white;
   color: #3886b9;
 }
-
 
 /* About Us Section */
 .aboutus-container {
@@ -148,7 +148,7 @@ body {
 }
 
 .image-upload-section label {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 15px 30px;
   font-size: 1.2em;
@@ -210,12 +210,12 @@ body {
 
   .banner-container p {
     font-size: 1.5em;
-    max-width: 80%; 
+    max-width: 80%;
   }
 }
 
 .upload-container button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 15px 30px;
   font-size: 1.2em;
@@ -228,7 +228,7 @@ body {
 
 .upload-container button:hover {
   background-color: white;
-  color: #4CAF50;
+  color: #4caf50;
 }
 
 /* Output Section Styles */
@@ -314,7 +314,7 @@ body {
   padding: 15px 30px;
   font-size: 1.1em;
   color: white;
-  background-color: #3886b9;;
+  background-color: #3886b9;
   border: none;
   border-radius: 12px;
   cursor: pointer;
@@ -410,4 +410,9 @@ body {
   font-size: 1.3em;
   color: #555;
   line-height: 1.6;
+}
+
+.disease-info-links a {
+  display: block;
+  margin-bottom: 8px; /* Optional: adds some space between the links */
 }
