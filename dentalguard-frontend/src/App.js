@@ -1,16 +1,22 @@
-import React, { useState, useEffect, useRef } from 'react';
-import './App.css';
-import Camera from 'react-html5-camera-photo';
-import 'react-html5-camera-photo/build/css/index.css';
-import Image1 from './bannerBG.jpg';
-import Image2 from './aboutImage2.jpg';
+import React, { useState, useEffect, useRef } from "react";
+import "./App.css";
+import Camera from "react-html5-camera-photo";
+import "react-html5-camera-photo/build/css/index.css";
+import Image1 from "./bannerBG.jpg";
+import Image2 from "./aboutImage2.jpg";
 
 const App = () => {
   useEffect(() => {
-    document.title = 'DentalGuard';
+    document.title = "DentalGuard";
   }, []);
-  
-  const [classificationData, setClassificationData] = useState(null);
+
+  const [classificationData, setClassificationData] = useState({
+    disease: "",
+    description: "",
+    treatment: "",
+    links: [],
+    confidence_level: null,
+  });
   const [diseaseInfo, setDiseaseInfo] = useState(null);
   const [cameraStream, setCameraStream] = useState(null);
   const [isCapturing, setIsCapturing] = useState(false);
@@ -24,7 +30,7 @@ const App = () => {
     setCapturedImage(dataUri);
     // Convert dataUri to a file object
     const blob = dataURItoBlob(dataUri);
-    const file = new File([blob], "captured-image.jpg", { type: 'image/jpeg' });
+    const file = new File([blob], "captured-image.jpg", { type: "image/jpeg" });
     setImageFile(file); // Store the file object for later submission
   };
 
@@ -33,8 +39,10 @@ const App = () => {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        // Directly set the capturedImage as a Base64 string
-        setCapturedImage(reader.result); // This is now a data URI (Base64 encoded)
+        // Set the capturedImage for display
+        setCapturedImage(reader.result);
+        // Set the imageFile for submission
+        setImageFile(file); // Ensure this line correctly sets the file
       };
       reader.readAsDataURL(file);
     }
@@ -42,45 +50,42 @@ const App = () => {
 
   // Function to convert dataURI to Blob
   const dataURItoBlob = (dataURI) => {
-    const byteString = atob(dataURI.split(',')[1]);
-    const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+    const byteString = atob(dataURI.split(",")[1]);
+    const mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
     const ab = new ArrayBuffer(byteString.length);
     const ia = new Uint8Array(ab);
     for (let i = 0; i < byteString.length; i++) {
-        ia[i] = byteString.charCodeAt(i);
+      ia[i] = byteString.charCodeAt(i);
     }
-    return new Blob([ab], {type: mimeString});
-  }
+    return new Blob([ab], { type: mimeString });
+  };
 
   const handleSubmit = () => {
-    if (!capturedImage) { // Now using capturedImage directly
-      alert('Please select or capture an image first.');
+    if (!imageFile) {
+      // Make sure there's an image file to send
+      alert("Please select or capture an image first.");
       return;
     }
-  
-    // Prepare the image data in JSON format
-    const imageData = {
-      image: capturedImage, // Assuming capturedImage is a data URI or you have converted it to Base64 for uploaded files
-    };
-  
+
+    // Create FormData and append the file
+    const formData = new FormData();
+    formData.append("file", imageFile);
+
     // Define the URL of the backend endpoint
-    const url = 'http://localhost:8000/classify';
-  
-    // Submit the JSON data
+    const url = "http://localhost:8000/classify";
+
+    // Submit the FormData
     fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(imageData),
+      method: "POST",
+      body: formData, // No need to set Content-Type header when using FormData
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data); // Handle the response data
-    })
-    .catch(error => {
-      console.error('Error submitting image:', error);
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        setClassificationData(data);
+      })
+      .catch((error) => {
+        console.error("Error submitting image:", error);
+      });
   };
 
   const handleCaptureToggle = () => {
@@ -91,9 +96,9 @@ const App = () => {
   };
 
   const handleTryNow = () => {
-    const demoSection = document.getElementById('demoNow');
+    const demoSection = document.getElementById("demoNow");
     if (demoSection) {
-      demoSection.scrollIntoView({ behavior: 'smooth' });
+      demoSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -111,33 +116,15 @@ const App = () => {
     };
   }, [cameraStream]);
 
-  useEffect(() => {
-    // Fetch or set classificationData and diseaseInfo based on your logic
-    // For now, let's simulate results after a delay
-    const timer = setTimeout(() => {
-      setClassificationData({
-        label: 'Gingivitis',
-        confidence: 0.85,
-      });
-
-      // Simulate disease information based on the classification
-      setDiseaseInfo({
-        description: 'Gingivitis is an inflammation of the gums...',
-        treatment: 'Text of recommendations',
-      });
-    }, 2000); // Simulating a delay of 2 seconds, replace with actual logic
-
-    // Clean up the timer to avoid memory leaks
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <div className="app-container">
       {/* Banner Section */}
       <div className="banner-container">
         <h1>DentalGuard</h1>
         <p width="20%">AI Oral Hygiene Detector</p>
-        <button className="banner-btn" onClick={handleTryNow}>Try Now</button>
+        <button className="banner-btn" onClick={handleTryNow}>
+          Try Now
+        </button>
       </div>
 
       {/* About Us Section */}
@@ -151,44 +138,89 @@ const App = () => {
 
           {/* Text on the Right */}
           <div className="text-content">
-            <h2>About <span class="inlineStyle">Us</span></h2>
-            <h4><span class="inlineStyle">DentalGuard</span> is the first AI Oral Hygiene Detection Software</h4>
+            <h2>
+              About <span className="inlineStyle">Us</span>
+            </h2>
+            <h4>
+              <span className="inlineStyle">DentalGuard</span> is the first AI
+              Oral Hygiene Detection Software
+            </h4>
             <p>
-               DentalGuard is a fully-functionial AI oral hygiene detection software built for low income communities with minimal or
-               reduced access to healthcare facilities. DentalGuard can be used to identify over 20 mouth diseases and give real-time data informing
-               users on the condition of their oral health. Snap a picture and DentalGuard AI will provide oral hygiene analysis and 
-               provide both treatment advice and hygiene descriptions based on user input.
+              DentalGuard is a fully-functionial AI oral hygiene detection
+              software built for low income communities with minimal or reduced
+              access to healthcare facilities. DentalGuard can be used to
+              identify over 20 mouth diseases and give real-time data informing
+              users on the condition of their oral health. Snap a picture and
+              DentalGuard AI will provide oral hygiene analysis and provide both
+              treatment advice and hygiene descriptions based on user input.
             </p>
           </div>
         </div>
       </div>
 
       <div className="instructions-section">
-        <h2><span class="inlineStyle">Wondering</span> how to take a good picture?</h2>
+        <h2>
+          <span className="inlineStyle">Wondering</span> how to take a good
+          picture?
+        </h2>
         <ul>
           <li>Ensure the area is well-lit, using natural light if possible.</li>
-          <li>Open your mouth wide enough to clearly show the area of interest.</li>
-          <li>Consider having a friend take the picture to ensure steady and clear shots.</li>
-          <li>Avoid blurry images by holding the camera still and using the auto-focus feature.</li>
+          <li>
+            Open your mouth wide enough to clearly show the area of interest.
+          </li>
+          <li>
+            Consider having a friend take the picture to ensure steady and clear
+            shots.
+          </li>
+          <li>
+            Avoid blurry images by holding the camera still and using the
+            auto-focus feature.
+          </li>
         </ul>
       </div>
-      
+
       {/* Image Upload Section */}
       <div className="image-upload-section" id="demoNow">
-        <input type="file" id="imageUpload" accept="image/*" onChange={handleImageUpload}/>
-        <h2>Input Image <span class="inlineStyle">File</span> or Take Picture</h2>
+        <input
+          type="file"
+          id="imageUpload"
+          accept="image/*"
+          onChange={handleImageUpload}
+        />
+        <h2>
+          Input Image <span className="inlineStyle">File</span> or Take Picture
+        </h2>
         <p>Test Our Product Below</p>
-        <button htmlFor="imageUpload" className="upload-btn" onClick={() => document.querySelector('input[type="file"]').click()}>Select Image</button>
-        <button htmlFor="imageUpload" className="submit-btn" onClick={handleSubmit}>Submit Data</button>
+        <button
+          htmlFor="imageUpload"
+          className="upload-btn"
+          onClick={() => document.querySelector('input[type="file"]').click()}
+        >
+          Select Image
+        </button>
+        <button
+          htmlFor="imageUpload"
+          className="submit-btn"
+          onClick={handleSubmit}
+        >
+          Submit
+        </button>
         <button className="capture-btn" onClick={handleCaptureToggle}>
-          {showCamera ? 'Close Camera' : capturedImage ? 'Retake Photo' : 'Capture from Camera'}
+          {showCamera
+            ? "Close Camera"
+            : capturedImage
+            ? "Retake Photo"
+            : "Capture from Camera"}
         </button>
       </div>
 
       {/* Ensure the Camera Overlay is correctly toggled */}
       {showCamera && (
         <div className="camera-overlay">
-          <Camera onTakePhotoAnimationDone={handleTakePhoto} isFullscreen={false} />
+          <Camera
+            onTakePhotoAnimationDone={handleTakePhoto}
+            isFullscreen={false}
+          />
         </div>
       )}
 
@@ -198,26 +230,50 @@ const App = () => {
           <img src={capturedImage} alt="Captured or Uploaded" />
         )}
       </div>
-      
+
       {/* Output Section */}
-      {classificationData && (
+      {classificationData.disease && (
         <div className="output-section">
           <h2>Classification Result</h2>
           <p>
-            Mouth Condition: {classificationData.label} (Confidence: <span class="inlineStyle">{classificationData.confidence}</span>)
+            Mouth Condition: {classificationData.disease} (Confidence:{" "}
+            {classificationData.confidence_level && (
+              <span className="inlineStyle">
+                {classificationData.confidence_level}
+              </span>
+            )}
+            )
           </p>
         </div>
       )}
 
       {/* Description and Treatment Recommendations Section */}
-      {diseaseInfo && (
-        <div className="disease-info-section">
-          <h2>{classificationData.label} Information</h2>
-          <p>{diseaseInfo.description}</p>
-          <h3>Treatment Recommendations</h3>
-          <p>{diseaseInfo.treatment}</p>
-        </div>
-      )}
+      {classificationData.description &&
+        classificationData.treatment &&
+        classificationData.links && (
+          <div className="disease-info-section">
+            <h2>{classificationData.disease} Information</h2>
+            <p>{classificationData.description}</p>
+            <h3>Treatment Recommendations</h3>
+            <p>{classificationData.treatment}</p>
+            {classificationData.links &&
+              classificationData.links.length > 0 && (
+                <div className="disease-info-links">
+                  <h3>Helpful Links</h3>
+                  {classificationData.links.map((link, i) => (
+                    <a
+                      key={i}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.title}
+                    </a>
+                  ))}
+                </div>
+              )}
+          </div>
+        )}
       {/* Footer Section */}
       <footer className="footer-section">
         <div className="left-content">
