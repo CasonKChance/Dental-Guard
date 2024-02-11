@@ -30,7 +30,7 @@ body {
 
 /* Banner Section */
 .banner-container {
-  background: url("happySmiling.jpg") center/cover;
+  background: url("familyBG.jpg") center/cover;
   height: 750px;
   width: 100%;
   display: flex;
@@ -48,17 +48,17 @@ body {
 
 .banner-container p {
   font-size: 3em;
-  margin-bottom: 250px;
+  margin-bottom: 120px;
   max-width: 60%;
   color: rgb(255, 255, 255);
 }
 
 .banner-btn {
   border: none;
-  font-size: 1.2em;
+  font-size: 2em;
   cursor: pointer;
   display: inline-block;
-  padding: 15px 30px;
+  padding: 20px 40px;
   border-radius: 14px;
   text-decoration: none;
   color: white;
@@ -351,10 +351,10 @@ body {
 .upload-btn {
   background-color: #3886b9;
   color: white;
-  padding: 15px 30px;
+  padding: 20px 35px;
   margin-top: 20px;
   margin-bottom: 20px;
-  font-size: 1.2em;
+  font-size: 1.4em;
   border: none;
   border-radius: 12px;
   cursor: pointer;
@@ -367,6 +367,25 @@ body {
   color: #3886b9;
 }
 
+.submit-btn {
+  background-color: #7ea56b;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-left: 10px; /* Adjust the spacing between the two buttons */
+  transition: background-color 0.4s, color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: white;
+  color: #7ea56b;
+}
+
 .instructions-section {
   margin-top: 80px;
   background-color: rgba(235, 235, 235, 0.699);
@@ -375,6 +394,7 @@ body {
 }
 
 .instructions-section h2 {
+  margin-left: 20px;
   font-size: 3em;
   color: #333;
   margin-bottom: 16px;
@@ -382,6 +402,7 @@ body {
 
 .instructions-section ul {
   list-style: inside square;
+  margin-left: 10px;
 }
 
 .instructions-section li {

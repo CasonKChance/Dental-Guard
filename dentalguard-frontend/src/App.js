@@ -90,10 +90,10 @@ const App = () => {
     }
   };
 
-  const handleLearnMore = () => {
-    const aboutUsSection = document.getElementById('about-us-section');
-    if (aboutUsSection) {
-      aboutUsSection.scrollIntoView({ behavior: 'smooth' });
+  const handleTryNow = () => {
+    const demoSection = document.getElementById('demoNow');
+    if (demoSection) {
+      demoSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -137,11 +137,11 @@ const App = () => {
       <div className="banner-container">
         <h1>DentalGuard</h1>
         <p width="20%">AI Oral Hygiene Detector</p>
-        <button className="banner-btn" onClick={handleLearnMore}>Learn More</button>
+        <button className="banner-btn" onClick={handleTryNow}>Try Now</button>
       </div>
 
       {/* About Us Section */}
-      <div className="aboutus-container" id="about-us-section">
+      <div className="aboutus-container">
         <div className="aboutus-content">
           {/* Images on the Left */}
           <div className="image-stack">
@@ -156,8 +156,8 @@ const App = () => {
             <p>
                DentalGuard is a fully-functionial AI oral hygiene detection software built for low income communities with minimal or
                reduced access to healthcare facilities. DentalGuard can be used to identify over 20 mouth diseases and give real-time data informing
-               users on the condition of their oral health. Snap a picture and DentalGuard AI will provide description of
-               oral hygiene status and provide treatment advice when neccessary.
+               users on the condition of their oral health. Snap a picture and DentalGuard AI will provide oral hygiene analysis and 
+               provide both treatment advice and hygiene descriptions based on user input.
             </p>
           </div>
         </div>
@@ -174,12 +174,12 @@ const App = () => {
       </div>
       
       {/* Image Upload Section */}
-      <div className="image-upload-section">
+      <div className="image-upload-section" id="demoNow">
         <input type="file" id="imageUpload" accept="image/*" onChange={handleImageUpload}/>
         <h2>Input Image <span class="inlineStyle">File</span> or Take Picture</h2>
         <p>Test Our Product Below</p>
         <button htmlFor="imageUpload" className="upload-btn" onClick={() => document.querySelector('input[type="file"]').click()}>Select Image</button>
-        <button htmlFor="imageUpload" className="upload-btn" onClick={handleSubmit}>Submit Image</button>
+        <button htmlFor="imageUpload" className="submit-btn" onClick={handleSubmit}>Submit Data</button>
         <button className="capture-btn" onClick={handleCaptureToggle}>
           {showCamera ? 'Close Camera' : capturedImage ? 'Retake Photo' : 'Capture from Camera'}
         </button>
