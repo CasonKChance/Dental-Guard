@@ -8,7 +8,7 @@ import torch.nn.functional as F
 import json
 
 class InceptionResNetV2(nn.Module):
-    def __init__(self, num_classes=6):
+    def __init__(self, num_classes=7):
         super(InceptionResNetV2, self).__init__()
         self.model = timm.create_model('inception_resnet_v2', pretrained=True)
         in_features = self.model.classif.in_features
@@ -18,8 +18,8 @@ class InceptionResNetV2(nn.Module):
         return self.model(x)
 
 # Load the model
-model = InceptionResNetV2(num_classes=6)  # Replace with your actual model class
-model.load_state_dict(torch.load('../AI Model/crossVIT_transformer_oral_disease_classifier.pth'))
+model = InceptionResNetV2(num_classes=7)  # Replace with your actual model class
+model.load_state_dict(torch.load('../AIModel/crossVIT_transformer_oral_disease_classifier.pth', map_location=torch.device('cpu')))
 model.eval()
 
 # Define transforms (update these to match your model's requirements)

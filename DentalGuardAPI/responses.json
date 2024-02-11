@@ -91,6 +91,8 @@
   },
   "Healthy": {
     "disease": "Healthy",
-    "description": "Your teeth are healthy!"
+    "description": "Your teeth are healthy!",
+    "treatment": "",
+    "links": []
   }
 }
