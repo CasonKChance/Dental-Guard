@@ -1,0 +1,96 @@
+{
+  "Calculus": {
+    "disease": "Calculus",
+    "description": "Calculus, commonly known as tartar, is a hardened dental plaque that forms when plaque is not removed. It is a critical indicator of oral health, affecting both aesthetics and contributing to gum disease by harboring bacteria. Unlike plaque, calculus cannot be removed through regular brushing and requires professional dental intervention.",
+    "treatment": "The primary treatment for calculus is professional dental cleaning, also known as scaling and root planing. These procedures involve the removal of tartar using specialized instruments. To prevent the formation of calculus, it is essential to maintain optimal oral hygiene practices, including regular brushing, flossing, and dental check-ups.",
+    "links": [
+      {
+        "title": "American Dental Association - Tartar",
+        "url": "https://www.ada.org/resources/research/science-and-research-institute/oral-health-topics/tartar"
+      },
+      {
+        "title": "Cleveland Clinic - Dental plaque and tartar",
+        "url": "https://my.clevelandclinic.org/health/diseases/10957-dental-plaque-and-tartar"
+      }
+    ]
+  },
+  "Tooth Discoloration": {
+    "disease": "Tooth Discoloration",
+    "description": "Tooth discoloration involves changes to the color of one's teeth, caused by various external and internal factors, including the consumption of certain foods and beverages, tobacco use, aging, and certain medications. It ranges from surface stains to deep discoloration affecting the tooth's internal structure.",
+    "treatment": "Professional teeth whitening procedures can effectively treat external tooth stains, while options like dental veneers or crowns are available for intrinsic discoloration. Preventative measures include minimizing intake of staining substances, maintaining rigorous oral hygiene, and regular dental check-ups.",
+    "links": [
+      {
+        "title": "Colgate - Tooth discoloration",
+        "url": "https://www.colgate.com/en-us/oral-health/cosmetic-dentistry/teeth-whitening/causes-and-treatments-for-tooth-discoloration-0415"
+      },
+      {
+        "title": "American Dental Association - Tooth staining",
+        "url": "https://www.ada.org/resources/research/science-and-research-institute/oral-health-topics/tooth-staining"
+      }
+    ]
+  },
+  "Caries": {
+    "disease": "Caries",
+    "description": "Dental caries, or cavities, result from the tooth decay process leading to enamel destruction. The severity can range from minor surface issues to deep cavities. Caries are caused by acid-producing bacteria in dental plaque and are influenced by dietary habits, oral hygiene, and fluoride exposure.",
+    "treatment": "Early-stage caries may be reversible with fluoride treatments. More advanced decay requires restorative procedures such as fillings, crowns, or root canals. Prevention includes regular dental care, using fluoride toothpaste, dental sealants for children, and reducing sugary and acidic foods and drinks.",
+    "links": [
+      {
+        "title": "American Dental Association - Tooth decay",
+        "url": "https://www.ada.org/resources/research/science-and-research-institute/oral-health-topics/tooth-decay"
+      },
+      {
+        "title": "Mayo Clinic - Cavities/tooth decay",
+        "url": "https://www.mayoclinic.org/diseases-conditions/cavities/symptoms-causes/syc-20352892"
+      }
+    ]
+  },
+  "Gingivitis": {
+    "disease": "Gingivitis",
+    "description": "Gingivitis, an early stage of gum disease, is characterized by gum inflammation, redness, and bleeding. It is a mild and often reversible condition with prompt and proper oral hygiene. Left untreated, it can progress to periodontitis, which can lead to tooth loss.",
+    "treatment": "Treatment includes professional dental cleaning and improved home care practices such as regular brushing, flossing, and using antimicrobial mouthwash. Regular dental visits are crucial for preventing and managing gingivitis.",
+    "links": [
+      {
+        "title": "American Dental Association - Gingivitis",
+        "url": "https://www.ada.org/resources/research/science-and-research-institute/oral-health-topics/gingivitis"
+      },
+      {
+        "title": "National Institute of Dental and Craniofacial Research - Gum disease",
+        "url": "https://www.nidcr.nih.gov/health-info/gum-disease/more-info"
+      }
+    ]
+  },
+  "Hypodontia": {
+    "disease": "Hypodontia",
+    "description": "Hypodontia is the developmental absence of one or more teeth, affecting both aesthetics and functionality. It can range from missing a single tooth to multiple teeth, impacting oral health and self-esteem. The condition often has genetic origins but can be associated with certain syndromes.",
+    "treatment": "Treatment options include dental implants, removable prosthetics, or orthodontic solutions to manage space and functionality. Each case requires a personalized approach, considering the individual's overall dental health and aesthetic goals.",
+    "links": [
+      {
+        "title": "American Academy of Periodontology - Missing teeth",
+        "url": "https://www.perio.org/consumer/missing-teeth"
+      },
+      {
+        "title": "American Association of Oral and Maxillofacial Surgeons - Dental implants",
+        "url": "https://www.aaoms.org/patients/dental-implants"
+      }
+    ]
+  },
+  "Ulcers": {
+    "disease": "Ulcers",
+    "description": "Oral ulcers, also known as canker sores, are small, painful lesions that appear on the inside of the mouth. Their severity can affect eating, speaking, and oral hygiene practices. While most are benign and self-limiting, persistent or recurrent ulcers require professional evaluation.",
+    "treatment": "Minor ulcers typically heal within 1-2 weeks without treatment. For pain relief, topical analgesics or antimicrobial mouthwashes can be used. Severe cases may require further investigation and treatment to address underlying causes.",
+    "links": [
+      {
+        "title": "Mayo Clinic - Mouth ulcers",
+        "url": "https://www.mayoclinic.org/diseases-conditions/mouth-ulcers/symptoms-causes/syc-20350960"
+      },
+      {
+        "title": "American Dental Association - Canker sores",
+        "url": "https://www.ada.org/resources/research/science-and-research-institute/oral-health-topics/canker-sores"
+      }
+    ]
+  },
+  "Healthy": {
+    "disease": "Healthy",
+    "description": "Your teeth are healthy!"
+  }
+}
