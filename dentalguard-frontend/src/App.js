@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Camera from "react-html5-camera-photo";
 import "react-html5-camera-photo/build/css/index.css";
@@ -17,11 +17,9 @@ const App = () => {
     links: [],
     confidence_level: null,
   });
-  const [diseaseInfo, setDiseaseInfo] = useState(null);
+
   const [cameraStream, setCameraStream] = useState(null);
-  const [isCapturing, setIsCapturing] = useState(false);
   const [capturedImage, setCapturedImage] = useState(null);
-  const videoRef = useRef(null);
   const [imageFile, setImageFile] = useState(null); // Correctly define the imageFile state and its setter
 
   const [showCamera, setShowCamera] = useState(false);
@@ -102,10 +100,6 @@ const App = () => {
     }
   };
 
-  const handleCloseCamera = () => {
-    setIsCapturing(false); // Explicitly close the camera
-  };
-
   useEffect(() => {
     return () => {
       // Cleanup: Stop the camera stream when the component unmounts
@@ -120,8 +114,8 @@ const App = () => {
     <div className="app-container">
       {/* Banner Section */}
       <div className="banner-container">
-        <h1>DentalGuard</h1>
-        <p width="20%">AI Oral Hygiene Detector</p>
+        <h1 className="title">DentalGuard</h1>
+        <p className="title">AI Oral Hygiene Detector</p>
         <button className="banner-btn" onClick={handleTryNow}>
           Try Now
         </button>
@@ -132,8 +126,8 @@ const App = () => {
         <div className="aboutus-content">
           {/* Images on the Left */}
           <div className="image-stack">
-            <img src={Image1} alt="About Us Image 1" />
-            <img src={Image2} alt="About Us Image 2" />
+            <img src={Image1} alt="About Us 1" />
+            <img src={Image2} alt="About Us 2" />
           </div>
 
           {/* Text on the Right */}
@@ -239,7 +233,7 @@ const App = () => {
             Mouth Condition: {classificationData.disease} (Confidence:{" "}
             {classificationData.confidence_level && (
               <span className="inlineStyle">
-                {classificationData.confidence_level}
+                {classificationData.confidence_level}%
               </span>
             )}
             )

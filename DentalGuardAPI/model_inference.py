@@ -54,4 +54,4 @@ with torch.no_grad():
     confidence = round(max_prob.item(), 2)  # Confidence level of the prediction
 
 # Print the classification result with the disease name and confidence
-print(json.dumps({'classification': predicted_disease, 'confidence_level': confidence}))
+print(json.dumps({'classification': predicted_disease, 'confidence_level': confidence * 100}))
