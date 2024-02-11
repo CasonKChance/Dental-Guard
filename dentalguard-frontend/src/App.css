@@ -31,7 +31,7 @@ body {
 
 /* Banner Section */
 .banner-container {
-  background: url("familyBG.jpg") center/cover;
+  background: url("bannerBGR.jpg") center/cover;
   height: 750px;
   width: 100%;
   display: flex;
