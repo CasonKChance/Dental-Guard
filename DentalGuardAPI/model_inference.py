@@ -32,11 +32,11 @@ transform = transforms.Compose([
 diseases = [
     "Ulcers",  # index 0
     "Hypodontia",  # index 1
-    "Healthy",    # index 2
-    "Gingivitis",  # index 3
+    "Calculus",  # index 6
     "Caries",  # index 4
     "Tooth Discoloration",  # index 5
-    "Calculus"  # index 6
+    "Healthy",    # index 2
+    "Gingivitis",  # index 3
 ]
 
 # Load and preprocess the image
